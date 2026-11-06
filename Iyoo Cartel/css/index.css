@@ -1,0 +1,357 @@
+/* ==========================================================
+   Iyoo Cartel home page - one fluid layout for every screen
+   (the old separate "small-screen" copy of the page is gone:
+    the same markup now adapts with the media queries below)
+   ========================================================== */
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    -webkit-text-size-adjust: 100%;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+img{
+    max-width: 100%;
+}
+
+/* ---------- navigation ---------- */
+.nav-bar{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    z-index: 30;
+    width: 100%;
+    min-height: 55px;
+    padding: 5px clamp(1rem, 4vw, 3rem);
+    background-color: rgb(17, 87, 198);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.785);
+}
+.links{
+    display: flex;
+    gap: .25rem;
+    margin: 0 auto;
+}
+.links a{
+    text-decoration: none;
+    color: white;
+    border-bottom: 5px solid transparent;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-family: sans-serif;
+    font-weight: 700;
+    padding: 10px 20px;
+    white-space: nowrap;
+}
+.links a:hover{
+    border-bottom: 5px solid white;
+}
+.nav-icons{
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    height: 45px;
+    background-color: white;
+    border-radius: 10px;
+}
+.nav-icons button{
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    border: 1px solid transparent;
+    background-color: white;
+}
+.nav-icons .nav-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    border: 1px solid transparent;
+    background-color: white;
+}
+.nav-icons button:hover,
+.nav-icons .nav-btn:hover{
+    border: 1px solid rgb(17, 87, 198);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.nav-icons i{
+    color: rgb(17, 87, 198);
+}
+.nav-toggle{
+    display: none;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: white;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+/* ---------- hero ---------- */
+.landingpage{
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(1.25rem, 4vw, 4rem);
+    width: 100%;
+    padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 5vw, 4rem);
+    background-color: rgb(17, 87, 198);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 0px 10px 20px -5px black;
+}
+.landingpage-text{
+    min-width: 0;
+    padding: 1rem 1rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px -5px rgb(0, 0, 0);
+}
+.landingpage-text img{
+    display: block;
+    width: 100%;
+    height: clamp(180px, 32vw, 390px);
+    object-fit: contain;
+}
+marquee{
+    display: block;
+    width: 100%;
+}
+.landingpage-text h2{
+    margin-top: 1rem;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    text-shadow: 0 10px 20px -5px rgb(0, 0, 0);
+}
+
+      /* slideshow */
+.slideshow{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 45 / 52;
+    justify-self: center;
+    box-shadow: 0 10px 20px -5px black;
+    border-radius: 20px;
+}
+.slides{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    animation: slide 9s infinite;
+}
+.slides img{
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+@keyframes slide{
+    0%  {transform: translateX(0%);}
+    30% {transform: translateX(0%);}
+    33% {transform: translateX(-100%);}
+    63% {transform: translateX(-100%);}
+    66% {transform: translateX(-200%);}
+    96% {transform: translateX(-200%);}
+    100% {transform: translateX(0%);}
+}
+    /* dots */
+.dots{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+.dot{
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    display: inline-block;
+    background-color: rgb(17, 87, 198);
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: dotslide 9s infinite;
+}
+.dot:nth-child(1){animation-delay: 0s;}
+.dot:nth-child(2){animation-delay: 3s;}
+.dot:nth-child(3){animation-delay: 6s;}
+@keyframes dotslide{
+    0%, 30%{
+        opacity: 1;
+        transform: scale(1.3);
+    }
+     33%, 100%{
+        opacity: 0.5;
+        transform: scale(1);
+    }
+}
+
+        /* product cards */
+.card .select { display: none; }
+.select i {
+    color: aliceblue;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
+    max-width: 1280px;
+    margin: clamp(2rem, 5vw, 4.5rem) auto 0;
+    padding-inline: clamp(1rem, 4vw, 3rem);
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border-radius: 20px;
+}
+.card img{
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid gray;
+}
+.card-info{
+    flex: 1;
+    padding: .75rem .25rem 0;
+}
+.card .name{
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.card-info p{
+    margin-top: .4rem;
+}
+.card-foot{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    padding: .6rem .25rem 0;
+}
+.card .price{
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.card button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    border: 0;
+    padding: 5px 17px;
+    background-color: rgb(17, 87, 198);
+    border-radius: 12px;
+    cursor: pointer;
+}
+.card button:hover{
+    background-color: rgb(64, 127, 228);
+}
+.icon{
+    display: block;
+    width: 24px;
+    height: 24px;
+    color: #e3e3e3;
+}
+.footer{
+    margin-top: clamp(1.5rem, 4vw, 3rem);
+}
+.footer h3{
+    background-color: rgb(17, 87, 198);
+    text-align: center;
+    color: white;
+    padding: 10px;
+    font-size: clamp(.8rem, 2.6vw, 1.17rem);
+}
+
+/* ==========================================================
+   Tablet and below
+   ========================================================== */
+@media (max-width: 768px){
+    /* hamburger menu: links drop down under the blue bar */
+    .nav-toggle{
+        display: inline-flex;
+    }
+    .nav-icons{
+        margin-left: auto;
+    }
+    .links{
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        margin: 0;
+        padding: .25rem clamp(1rem, 4vw, 3rem) .75rem;
+        background-color: rgb(17, 87, 198);
+        box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.6);
+    }
+    .links.open{
+        display: flex;
+    }
+    .links a{
+        padding: 14px 4px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 0;
+    }
+    .links a:hover{
+        border-bottom: 1px solid white;
+    }
+
+    /* hero stacks: logo block, then slideshow */
+    .landingpage{
+        grid-template-columns: 1fr;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+    .slideshow{
+        max-width: 380px;
+    }
+}
+
+/* phones: two product tiles per row, name + price + cart button only */
+@media (max-width: 600px){
+    .cards{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .75rem;
+        margin-top: 1.5rem;
+    }
+    .card img{
+        border-radius: 10px;
+    }
+    .card-info p{
+        display: none;
+    }
+    .card .name{
+        font-size: .95rem;
+    }
+    .card .price{
+        font-size: .9rem;
+    }
+    .card button{
+        padding: 4px 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .slides,
+    .dot{
+        animation: none;
+    }
+}

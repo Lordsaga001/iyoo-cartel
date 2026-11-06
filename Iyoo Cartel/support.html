@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/iyoocartel-logo2.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/support.css">
+     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <title>Iyoocartel.com</title>
+</head>
+<body>
+    <div class="nav-bar">
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="links" id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="showroom.html">Show room</a>
+            <a href="#">contact</a>
+            </div>
+            <div  class="nav-icons">
+                <button title="cart"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="rgb(17, 87, 198)"><path d="M223.5-103.5Q200-127 200-160t23.5-56.5Q247-240 280-240t56.5 23.5Q360-193 360-160t-23.5 56.5Q313-80 280-80t-56.5-23.5Zm400 0Q600-127 600-160t23.5-56.5Q647-240 680-240t56.5 23.5Q760-193 760-160t-23.5 56.5Q713-80 680-80t-56.5-23.5ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/></svg></button>
+                <button title="profile">
+                    <i class="fa fa-user"></i>
+                </button>
+                <a class="nav-btn" href="searchpage.html" title="search" aria-label="Search"><i class="fa fa-search"></i></a>
+            </div>
+    </div>
+    <div class="customer-care">
+        <div  class="text">
+            <h1>Contact Support Center</h1>
+        </div>
+        <p>We're here to help find answers, resources and contact our team.</p>
+        <div class="ask">
+            <input type="search" placeholder="How can we assist you today?" aria-label="How can we assist you today?">
+            <button>Ask</button>
+        </div>
+    </div>
+    <div class="contacts">
+        <a href="https://wa.me/2347014126905"><i class="fa fa-whatsapp" title="whatsapp" ></i></a>
+        <a href="tel:+2347014126905"><i class="fa fa-phone" title="phone"></i></a>
+        <a href="mailto:solomonchibuike204@gmail.com"><i class="fa fa-envelope" title="e-mail"></i></a>
+    </div>
+    <div>
+        <footer>
+            <h3>©2026 Iyoo Cartel. All rights reserved.</h3>
+        </footer>
+    </div>
+    <script>
+        (function () {
+            var toggle = document.querySelector('.nav-toggle');
+            var menu = document.getElementById('nav-links');
+            toggle.addEventListener('click', function () {
+                var open = menu.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', open);
+            });
+        })();
+    </script>
+</body>
+</html>
